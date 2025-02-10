@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="quadrado">
+        <span>Produtos Cadastrados</span>
+        <p>
+            <span class="fw-bold">@ViewBag.ProdutosCadastrados</span>
+        </p>
+    </div>
+    <div class="quadrado">
+        <span>Total de Produtos em Estoque</span>
+        <p>
+            <span class="fw-bold">@ViewBag.TotalProdutosEstoque</span>
+        </p>
+    </div>
+    <div class="quadrado">
+        <span>Cuidade: Estoque Baixo</span>
+        <p>
+            @foreach (var produto in ViewBag.EstoqueBaixo)
+            {
+                <span class="h2">@produto.Titulo (@produto.QuantidadeEstoque)</span>
+            }
+        </p>
+    </div>
+    <div class="quadrado">
+        <span>Ajustar Estratégia de Venda</span>
+        <p>
+            @foreach (var produto in ViewBag.AjustarEstrategiaVenda)
+            {
+                <span class="h2">@produto.Titulo (@produto.QuantidadeEstoque)</span>
+            }
+        </p>
+    </div>
+</div>

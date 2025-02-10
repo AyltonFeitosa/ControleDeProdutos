@@ -1,0 +1,35 @@
+﻿@model ControleDeProdutos.Models.LoginModel
+
+@{
+    Layout = "_Layout_SemMenu";
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%;">
+        <div class="card-body">
+            <h3 class="text-center mb-4">Acesse sua conta</h3>
+            <form asp-controller="Login" asp-action="ValidarCredenciais">
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" type="email" class="form-control" id="Email" placeholder="Informe o email" required />
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="form-label">Senha</label>
+                    <input asp-for="Password" type="password" class="form-control" id="Senha" placeholder="Informe a senha" required />
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </div>
+                <br />
+                @if (!string.IsNullOrEmpty(ViewBag.MensagemRetorno))
+                {
+                    <div class="alert alert-danger text-center">@ViewBag.MensagemRetorno</div>
+                }
+            </form>
+        </div>
+        <div class="text-center mt-3">
+            <small class="text-muted">© 2025 ControleDeProdutos</small>
+        </div>
+    </div>
+</div>
